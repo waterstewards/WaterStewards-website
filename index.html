@@ -1,981 +1,243 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Water Stewards PVT LTD – Clean Water For All</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Water Stewards – Clean Water For All</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-```
-:root {
---blue-deep: #0a1f44;
---blue-mid: #1565c0;
---blue-light: #29b6f6;
---blue-pale: #e3f2fd;
---green: #43a047;
---white: #ffffff;
---gray: #f0f4f8;
---text: #1a2a3a;
---text-soft: #4a6080;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-font-family: 'Nunito', sans-serif;
-color: var(--text);
-background: var(--white);
-overflow-x: hidden;
-}
-
-/* ─── NAVBAR ─────────────────────────────────────────── */
-nav {
-position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
-background: rgba(10, 31, 68, 0.96);
-backdrop-filter: blur(10px);
-display: flex; align-items: center; justify-content: space-between;
-padding: 0 5%; height: 68px;
-box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-}
-
-.nav-logo {
-display: flex; align-items: center; gap: 12px;
-text-decoration: none;
-}
-
-.nav-logo .logo-icon {
-width: 42px; height: 42px;
-}
-
-.nav-logo .brand {
-font-family: 'Bebas Neue', sans-serif;
-font-size: 1.4rem; letter-spacing: 2px;
-color: var(--white); line-height: 1;
-}
-
-.nav-logo .brand span { color: var(--blue-light); }
-
-.nav-links {
-display: flex; gap: 32px; list-style: none;
-}
-
-.nav-links a {
-color: rgba(255,255,255,0.75);
-text-decoration: none;
-font-weight: 700; font-size: 0.85rem;
-letter-spacing: 1.5px; text-transform: uppercase;
-transition: color 0.2s;
-}
-
-.nav-links a:hover { color: var(--blue-light); }
-
-/* ─── HERO ───────────────────────────────────────────── */
-#hero {
-min-height: 100vh;
-background: linear-gradient(135deg, var(--blue-deep) 0%, #0d3b7a 50%, #0a2d6e 100%);
-display: flex; align-items: center;
-position: relative; overflow: hidden;
-padding-top: 68px;
-}
-
-/* animated water circles background */
-.bubbles {
-position: absolute; inset: 0; pointer-events: none; overflow: hidden;
-}
-
-.bubble {
-position: absolute;
-border-radius: 50%;
-background: rgba(41,182,246,0.12);
-animation: rise linear infinite;
-}
-
-@keyframes rise {
-0% { transform: translateY(110vh) scale(0.5); opacity: 0; }
-10% { opacity: 1; }
-90% { opacity: 0.6; }
-100% { transform: translateY(-20vh) scale(1.1); opacity: 0; }
-}
-
-.bubble:nth-child(1) { width:60px; height:60px; left:8%; animation-duration:9s; animation-delay:0s; }
-.bubble:nth-child(2) { width:30px; height:30px; left:20%; animation-duration:11s; animation-delay:2s; }
-.bubble:nth-child(3) { width:80px; height:80px; left:35%; animation-duration:8s; animation-delay:1s; }
-.bubble:nth-child(4) { width:20px; height:20px; left:50%; animation-duration:13s; animation-delay:4s; }
-.bubble:nth-child(5) { width:50px; height:50px; left:65%; animation-duration:10s; animation-delay:0.5s;}
-.bubble:nth-child(6) { width:40px; height:40px; left:78%; animation-duration:7s; animation-delay:3s; }
-.bubble:nth-child(7) { width:70px; height:70px; left:90%; animation-duration:12s; animation-delay:1.5s;}
-.bubble:nth-child(8) { width:15px; height:15px; left:55%; animation-duration:6s; animation-delay:2.5s;}
-
-.hero-content {
-position: relative; z-index: 2;
-max-width: 1200px; margin: 0 auto;
-padding: 80px 5% 80px;
-display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
-}
-
-.hero-text { animation: fadeUp 0.9s ease both; }
-
-@keyframes fadeUp {
-from { opacity: 0; transform: translateY(40px); }
-to { opacity: 1; transform: translateY(0); }
-}
-
-.hero-badge {
-display: inline-block;
-background: rgba(41,182,246,0.2);
-border: 1px solid rgba(41,182,246,0.5);
-color: var(--blue-light);
-font-size: 0.75rem; font-weight: 800; letter-spacing: 2.5px;
-text-transform: uppercase;
-padding: 6px 16px; border-radius: 30px;
-margin-bottom: 20px;
-}
-
-.hero-title {
-font-family: 'Bebas Neue', sans-serif;
-font-size: clamp(3rem, 6vw, 5.5rem);
-line-height: 0.95;
-color: var(--white);
-margin-bottom: 24px;
-}
-
-.hero-title .accent { color: var(--blue-light); }
-
-.hero-sub {
-font-size: 1.1rem; color: rgba(255,255,255,0.75);
-line-height: 1.7; margin-bottom: 40px; max-width: 480px;
-}
-
-.hero-cta-group { display: flex; gap: 16px; flex-wrap: wrap; }
-
-.btn-primary {
-display: inline-flex; align-items: center; gap: 8px;
-background: var(--blue-light);
-color: var(--blue-deep);
-font-weight: 800; font-size: 0.9rem; letter-spacing: 0.5px;
-padding: 14px 28px; border-radius: 50px;
-text-decoration: none;
-transition: transform 0.2s, box-shadow 0.2s;
-box-shadow: 0 4px 20px rgba(41,182,246,0.4);
-}
-
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(41,182,246,0.5); }
-
-.btn-outline {
-display: inline-flex; align-items: center; gap: 8px;
-border: 2px solid rgba(255,255,255,0.4);
-color: var(--white);
-font-weight: 700; font-size: 0.9rem;
-padding: 12px 26px; border-radius: 50px;
-text-decoration: none;
-transition: border-color 0.2s, background 0.2s;
-}
-
-.btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
-
-/* hero visual */
-.hero-visual {
-display: flex; justify-content: center; align-items: center;
-animation: fadeUp 0.9s 0.3s ease both;
-}
-
-.hero-card-stack {
-position: relative; width: 340px; height: 380px;
-}
-
-.hero-card {
-position: absolute;
-background: rgba(255,255,255,0.06);
-border: 1px solid rgba(255,255,255,0.15);
-border-radius: 24px;
-backdrop-filter: blur(12px);
-}
-
-.hero-card.main {
-inset: 0;
-display: flex; flex-direction: column;
-align-items: center; justify-content: center;
-gap: 16px; padding: 32px;
-}
-
-.hero-card.back1 {
-inset: 20px -20px -20px 20px;
-background: rgba(41,182,246,0.06);
-z-index: -1;
-}
-
-.hero-card.back2 {
-inset: 38px -38px -38px 38px;
-background: rgba(21,101,192,0.06);
-z-index: -2;
-}
-
-.hero-stat {
-text-align: center;
-}
-
-.hero-stat .num {
-font-family: 'Bebas Neue', sans-serif;
-font-size: 3rem; color: var(--blue-light); line-height: 1;
-}
-
-.hero-stat .lbl {
-font-size: 0.75rem; color: rgba(255,255,255,0.6);
-text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;
-}
-
-.hero-divider {
-width: 1px; height: 40px;
-background: rgba(255,255,255,0.2);
-}
-
-.drop-icon {
-width: 64px; height: 64px;
-background: linear-gradient(135deg, var(--blue-light), var(--blue-mid));
-border-radius: 50% 50% 50% 0;
-transform: rotate(-45deg);
-display: flex; align-items: center; justify-content: center;
-box-shadow: 0 8px 24px rgba(41,182,246,0.4);
-}
-
-.drop-icon svg { transform: rotate(45deg); }
-
-/* wave divider */
-.wave-divider {
-display: block; width: 100%; overflow: hidden;
-line-height: 0;
-}
-
-.wave-divider svg { display: block; width: 100%; }
-
-/* ─── SECTION BASE ────────────────────────────────────── */
-section { padding: 90px 5%; }
-
-.section-label {
-font-size: 0.72rem; font-weight: 800; letter-spacing: 3px;
-text-transform: uppercase; color: var(--blue-mid);
-margin-bottom: 12px;
-}
-
-.section-title {
-font-family: 'Bebas Neue', sans-serif;
-font-size: clamp(2.2rem, 4vw, 3.2rem);
-line-height: 1; color: var(--blue-deep);
-margin-bottom: 16px;
-}
-
-.section-title .accent { color: var(--blue-mid); }
-
-.section-sub {
-font-size: 1rem; color: var(--text-soft);
-max-width: 560px; line-height: 1.7;
-margin-bottom: 52px;
-}
-
-.container { max-width: 1200px; margin: 0 auto; }
-
-/* ─── SERVICES ────────────────────────────────────────── */
-#services { background: var(--gray); }
-
-.services-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-gap: 28px;
-}
-
-.service-card {
-background: var(--white);
-border-radius: 20px;
-padding: 36px 28px;
-box-shadow: 0 4px 24px rgba(10,31,68,0.07);
-transition: transform 0.25s, box-shadow 0.25s;
-border-top: 4px solid transparent;
-position: relative; overflow: hidden;
-}
-
-.service-card::after {
-content: '';
-position: absolute; top: 0; left: 0; right: 0; height: 4px;
-background: linear-gradient(90deg, var(--blue-mid), var(--blue-light));
-}
-
-.service-card:hover {
-transform: translateY(-6px);
-box-shadow: 0 12px 40px rgba(10,31,68,0.13);
-}
-
-.service-icon {
-width: 52px; height: 52px; border-radius: 14px;
-background: var(--blue-pale);
-display: flex; align-items: center; justify-content: center;
-margin-bottom: 20px;
-}
-
-.service-icon svg { width: 26px; height: 26px; color: var(--blue-mid); }
-
-.service-card h3 {
-font-size: 1.1rem; font-weight: 800; color: var(--blue-deep);
-margin-bottom: 10px;
-}
-
-.service-card p {
-font-size: 0.9rem; color: var(--text-soft); line-height: 1.65;
-}
-
-/* ─── WHY US ──────────────────────────────────────────── */
-#why {
-background: var(--white);
-}
-
-.why-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 60px;
-align-items: center;
-}
-
-.why-visual {
-position: relative;
-}
-
-.why-big-box {
-background: linear-gradient(135deg, var(--blue-deep), #1565c0);
-border-radius: 28px;
-padding: 52px 44px;
-color: white;
-}
-
-.why-big-box h3 {
-font-family: 'Bebas Neue', sans-serif;
-font-size: 2.8rem; margin-bottom: 8px;
-line-height: 1;
-}
-
-.why-big-box p {
-font-size: 0.9rem; opacity: 0.75; line-height: 1.6;
-}
-
-.why-float-badge {
-position: absolute;
-right: -20px; bottom: -20px;
-background: var(--green);
-color: white;
-border-radius: 16px;
-padding: 20px 24px;
-box-shadow: 0 8px 24px rgba(67,160,71,0.4);
-text-align: center;
-font-weight: 800;
-}
-
-.why-float-badge .pct { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; line-height: 1; }
-.why-float-badge .tag { font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase; opacity: 0.9; }
-
-.why-list { display: flex; flex-direction: column; gap: 20px; }
-
-.why-item {
-display: flex; gap: 18px; align-items: flex-start;
-}
-
-.why-num {
-min-width: 42px; height: 42px; border-radius: 12px;
-background: var(--blue-pale);
-color: var(--blue-mid);
-font-family: 'Bebas Neue', sans-serif;
-font-size: 1.3rem;
-display: flex; align-items: center; justify-content: center;
-}
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
 
-.why-item h4 { font-size: 1rem; font-weight: 800; color: var(--blue-deep); margin-bottom: 4px; }
-.why-item p { font-size: 0.87rem; color: var(--text-soft); line-height: 1.5; }
-
-/* ─── PRODUCTS ────────────────────────────────────────── */
-#products { background: var(--blue-deep); }
-
-#products .section-label { color: var(--blue-light); }
-#products .section-title { color: var(--white); }
-#products .section-sub { color: rgba(255,255,255,0.6); }
-
-.products-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-gap: 24px;
-}
-
-.product-card {
-background: rgba(255,255,255,0.06);
-border: 1px solid rgba(255,255,255,0.12);
-border-radius: 20px;
-padding: 36px 24px;
-text-align: center;
-transition: background 0.25s, transform 0.25s;
-}
-
-.product-card:hover {
-background: rgba(41,182,246,0.12);
-transform: translateY(-4px);
-}
-
-.product-vol {
-font-family: 'Bebas Neue', sans-serif;
-font-size: 3.2rem; color: var(--blue-light);
-line-height: 1; margin-bottom: 6px;
+:root{
+--blue-dark:#0a1f44;
+--blue:#1565c0;
+--light:#29b6f6;
+--bg:#f5f7fb;
+--text:#1a2a3a;
 }
 
-.product-name {
-font-weight: 800; font-size: 0.85rem;
-color: rgba(255,255,255,0.85);
-letter-spacing: 1px; text-transform: uppercase;
-margin-bottom: 16px;
+body{
+font-family:'Nunito',sans-serif;
+color:var(--text);
 }
 
-.product-tag {
-display: inline-block;
-background: rgba(41,182,246,0.15);
-color: var(--blue-light);
-font-size: 0.72rem; font-weight: 700;
-padding: 4px 14px; border-radius: 20px;
-letter-spacing: 1px;
+/* NAV */
+nav{
+position:fixed;
+width:100%;
+top:0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 5%;
+background:rgba(10,31,68,0.95);
+color:white;
+z-index:100;
 }
-
-/* ─── CONTACT ─────────────────────────────────────────── */
-#contact { background: var(--gray); }
 
-.contact-grid {
-display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+nav h1{
+font-family:'Bebas Neue';
+letter-spacing:2px;
 }
 
-.contact-info { display: flex; flex-direction: column; gap: 20px; }
+nav span{color:var(--light)}
 
-.contact-row {
-display: flex; align-items: flex-start; gap: 18px;
-background: var(--white);
-border-radius: 16px; padding: 22px 24px;
-box-shadow: 0 3px 16px rgba(10,31,68,0.06);
-text-decoration: none; color: inherit;
-transition: box-shadow 0.2s, transform 0.2s;
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
 }
 
-.contact-row:hover {
-box-shadow: 0 8px 28px rgba(21,101,192,0.14);
-transform: translateX(4px);
+nav a{
+color:white;
+text-decoration:none;
+font-size:14px;
 }
 
-.contact-icon {
-width: 46px; height: 46px; border-radius: 12px;
-flex-shrink: 0;
-display: flex; align-items: center; justify-content: center;
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,#0a1f44,#1565c0);
+color:white;
+padding:0 5%;
+text-align:center;
 }
-
-.contact-icon.phone { background: #e3f2fd; }
-.contact-icon.email { background: #e8f5e9; }
-.contact-icon.whatsapp { background: #e8f5e9; }
-.contact-icon.location { background: #fff8e1; }
-
-.contact-icon svg { width: 22px; height: 22px; }
 
-.contact-icon.phone svg { color: var(--blue-mid); }
-.contact-icon.email svg { color: var(--green); }
-.contact-icon.whatsapp svg { color: #25d366; }
-.contact-icon.location svg { color: #f9a825; }
-
-.contact-label {
-font-size: 0.7rem; font-weight: 800; letter-spacing: 1.5px;
-text-transform: uppercase; color: var(--text-soft);
-margin-bottom: 3px;
+.hero h2{
+font-family:'Bebas Neue';
+font-size:70px;
+line-height:1;
 }
 
-.contact-value {
-font-size: 1rem; font-weight: 700; color: var(--blue-deep);
-}
+.hero h2 span{color:var(--light)}
 
-.map-box {
-background: var(--white);
-border-radius: 20px; overflow: hidden;
-box-shadow: 0 4px 24px rgba(10,31,68,0.08);
+.hero p{
+max-width:500px;
+margin:20px auto;
+opacity:0.8;
 }
 
-.map-placeholder {
-height: 220px;
-background: linear-gradient(135deg, var(--blue-pale), #bbdefb);
-display: flex; flex-direction: column;
-align-items: center; justify-content: center;
-gap: 10px;
+.btn{
+display:inline-block;
+padding:12px 25px;
+border-radius:30px;
+margin:10px;
+text-decoration:none;
+font-weight:700;
 }
 
-.map-placeholder svg { width: 40px; height: 40px; color: var(--blue-mid); }
-.map-placeholder span { font-weight: 700; color: var(--blue-mid); font-size: 0.9rem; }
-
-.map-address {
-padding: 20px 24px;
+.primary{
+background:var(--light);
+color:black;
 }
 
-.map-address .addr-title {
-font-weight: 800; color: var(--blue-deep);
-margin-bottom: 6px; font-size: 0.95rem;
+.outline{
+border:2px solid white;
+color:white;
 }
 
-.map-address p {
-font-size: 0.88rem; color: var(--text-soft); line-height: 1.6;
+/* SECTION */
+section{
+padding:80px 5%;
+text-align:center;
 }
 
-/* ─── FOOTER ──────────────────────────────────────────── */
-footer {
-background: var(--blue-deep);
-padding: 48px 5% 30px;
+h3{
+font-family:'Bebas Neue';
+font-size:40px;
+margin-bottom:10px;
 }
 
-.footer-inner {
-max-width: 1200px; margin: 0 auto;
-display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px;
+.section-sub{
+max-width:600px;
+margin:auto;
+opacity:0.7;
+margin-bottom:40px;
 }
 
-.footer-brand .brand-name {
-font-family: 'Bebas Neue', sans-serif;
-font-size: 1.8rem; color: var(--white); letter-spacing: 2px;
-margin-bottom: 12px;
+/* SERVICES */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
-.footer-brand .brand-name span { color: var(--blue-light); }
-
-.footer-brand p {
-font-size: 0.88rem; color: rgba(255,255,255,0.5);
-line-height: 1.7; max-width: 280px;
+.card{
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
 }
 
-.footer-col h4 {
-font-size: 0.7rem; font-weight: 800; letter-spacing: 2.5px;
-text-transform: uppercase; color: var(--blue-light);
-margin-bottom: 16px;
+/* PRODUCTS */
+.products{
+background:var(--blue-dark);
+color:white;
 }
-
-.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer-col ul li { font-size: 0.88rem; color: rgba(255,255,255,0.55); }
-.footer-col ul li a { color: inherit; text-decoration: none; transition: color 0.2s; }
-.footer-col ul li a:hover { color: var(--white); }
 
-.footer-bottom {
-max-width: 1200px; margin: 36px auto 0;
-border-top: 1px solid rgba(255,255,255,0.1);
-padding-top: 24px;
-display: flex; justify-content: space-between; align-items: center;
-flex-wrap: wrap; gap: 12px;
+.products .card{
+background:rgba(255,255,255,0.05);
 }
 
-.footer-bottom p {
-font-size: 0.8rem; color: rgba(255,255,255,0.35);
+/* CONTACT */
+.contact{
+background:var(--bg);
 }
 
-.footer-tagline {
-font-size: 0.8rem; color: rgba(255,255,255,0.35);
-letter-spacing: 1px;
+.contact-box{
+background:white;
+padding:20px;
+border-radius:10px;
+margin:10px;
 }
 
-/* ─── RESPONSIVE ──────────────────────────────────────── */
-@media (max-width: 900px) {
-.hero-content { grid-template-columns: 1fr; text-align: center; }
-.hero-sub { margin-left: auto; margin-right: auto; }
-.hero-cta-group { justify-content: center; }
-.hero-visual { display: none; }
-.why-grid { grid-template-columns: 1fr; }
-.why-float-badge{ right: 0; bottom: -10px; }
-.contact-grid { grid-template-columns: 1fr; }
-.footer-inner { grid-template-columns: 1fr; gap: 30px; }
-nav .nav-links { display: none; }
+/* FOOTER */
+footer{
+background:var(--blue-dark);
+color:white;
+padding:30px;
+text-align:center;
+margin-top:40px;
 }
 
-@media (max-width: 480px) {
-section { padding: 70px 4%; }
+/* RESPONSIVE */
+@media(max-width:768px){
+.hero h2{font-size:45px}
+nav ul{display:none}
 }
-```
 
 </style>
 </head>
+
 <body>
 
-<!-- ═══════════════════ NAVBAR ═══════════════════ -->
-
+<!-- NAV -->
 <nav>
-<a class="nav-logo" href="#hero">
-<!-- SVG logo inspired by the water bubble + leaf icon -->
-<svg class="logo-icon" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-<ellipse cx="21" cy="30" rx="13" ry="7" fill="#43a047" opacity="0.9"/>
-<circle cx="14" cy="18" r="6" fill="#29b6f6"/>
-<circle cx="23" cy="14" r="4.5" fill="#29b6f6"/>
-<circle cx="30" cy="19" r="3.5" fill="#29b6f6"/>
-<circle cx="18" cy="10" r="2.5" fill="#64d8fb"/>
-<circle cx="28" cy="11" r="2" fill="#64d8fb"/>
-<circle cx="11" cy="13" r="2" fill="#64d8fb" opacity="0.7"/>
-</svg>
-<div>
-<div class="brand">WATER <span>STEWARDS</span></div>
-</div>
-</a>
-<ul class="nav-links">
+<h1>WATER <span>STEWARDS</span></h1>
+<ul>
 <li><a href="#services">Services</a></li>
-<li><a href="#why">About</a></li>
 <li><a href="#products">Products</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 </nav>
 
-<!-- ═══════════════════ HERO ═══════════════════ -->
+<!-- HERO -->
+<section class="hero">
+<div>
+<h2>FRESH & <br><span>PURIFIED</span> WATER</h2>
+<p>Clean drinking water delivered to your home and office across Islamabad.</p>
 
-<section id="hero">
-<div class="bubbles">
-<div class="bubble"></div><div class="bubble"></div>
-<div class="bubble"></div><div class="bubble"></div>
-<div class="bubble"></div><div class="bubble"></div>
-<div class="bubble"></div><div class="bubble"></div>
-</div>
-
-<div class="hero-content">
-<div class="hero-text">
-<div class="hero-badge">✦ Clean Water For All</div>
-<h1 class="hero-title">
-FRESH &amp;<br>
-<span class="accent">PURIFIED</span><br>
-DRINKING<br>
-WATER
-</h1>
-<p class="hero-sub">
-Islamabad's trusted water delivery partner. We bring clean,
-fresh drinking water to your home or office — fast, affordable,
-and right to your doorstep.
-</p>
-<div class="hero-cta-group">
-<a href="tel:+923059494143" class="btn-primary">
-<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg>
-Call Us Now
-</a>
-<a href="mailto:waterstewardspakistan@gmail.com" class="btn-outline">
-<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-Email Us
-</a>
-</div>
-</div>
-
-```
-<div class="hero-visual">
-<div class="hero-card-stack">
-<div class="hero-card back2"></div>
-<div class="hero-card back1"></div>
-<div class="hero-card main">
-<div class="drop-icon">
-<svg width="28" height="28" fill="white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
-</div>
-<div class="hero-stat">
-<div class="num">19L</div>
-<div class="lbl">Jumbo Bottles</div>
-</div>
-<div class="hero-divider"></div>
-<div class="hero-stat">
-<div class="num">FREE</div>
-<div class="lbl">Delivery in Islamabad</div>
-</div>
-<div class="hero-divider"></div>
-<div class="hero-stat">
-<div class="num">100%</div>
-<div class="lbl">Satisfaction Guarantee</div>
-</div>
-</div>
-</div>
-</div>
-```
-
+<a href="tel:+923059494143" class="btn primary">Call Now</a>
+<a href="mailto:waterstewardspakistan@gmail.com" class="btn outline">Email</a>
 </div>
 </section>
 
-<span class="wave-divider">
-<svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-<path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#f0f4f8"/>
-</svg>
-</span>
-
-<!-- ═══════════════════ SERVICES ═══════════════════ -->
-
+<!-- SERVICES -->
 <section id="services">
-<div class="container">
-<p class="section-label">What We Offer</p>
-<h2 class="section-title">OUR <span class="accent">SERVICES</span></h2>
-<p class="section-sub">From daily household supply to corporate bulk orders and event catering — we have you covered with clean, certified water.</p>
+<h3>OUR SERVICES</h3>
+<p class="section-sub">Reliable water delivery for homes, offices, and events.</p>
 
-```
-<div class="services-grid">
-
-<div class="service-card">
-<div class="service-icon">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-</div>
-<h3>Home Delivery</h3>
-<p>Fresh purified water delivered directly to your home. Schedule regular deliveries or order on demand — completely free within Islamabad.</p>
-</div>
-
-<div class="service-card">
-<div class="service-icon">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
-</div>
-<h3>Office Supply</h3>
-<p>Keep your workplace hydrated. We offer bulk and subscription-based delivery plans tailored for offices and businesses of any size.</p>
-</div>
-
-<div class="service-card">
-<div class="service-icon">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-</div>
-<h3>Event Catering</h3>
-<p>Hosting a gathering, wedding, or corporate event? We supply bottled and bulk water to ensure every guest stays refreshed.</p>
-</div>
-
-<div class="service-card">
-<div class="service-icon">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-</div>
-<h3>Flexible Scheduling</h3>
-<p>Set up a recurring delivery schedule that fits your routine. Daily, weekly, or bi-weekly — we adapt to your lifestyle and needs.</p>
-</div>
-
-</div>
-```
-
+<div class="grid">
+<div class="card">Home Delivery</div>
+<div class="card">Office Supply</div>
+<div class="card">Event Catering</div>
+<div class="card">Flexible Scheduling</div>
 </div>
 </section>
 
-<span class="wave-divider" style="transform:scaleY(-1); background:#f0f4f8;">
-<svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-<path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#ffffff"/>
-</svg>
-</span>
+<!-- PRODUCTS -->
+<section class="products" id="products">
+<h3>OUR PRODUCTS</h3>
 
-<!-- ═══════════════════ WHY US ═══════════════════ -->
-
-<section id="why">
-<div class="container">
-<div class="why-grid">
-<div class="why-visual">
-<div class="why-big-box">
-<h3>PAKISTAN<br>STANDARDS<br>CERTIFIED</h3>
-<p style="margin-top:16px;">Our water meets Pakistan Standards Authority quality benchmarks — purified, tested, and eco-friendly.</p>
-
-```
-<div style="margin-top:32px; display:flex; gap:32px;">
-<div>
-<div style="font-family:'Bebas Neue',sans-serif; font-size:2.5rem; color:#29b6f6; line-height:1;">500ml</div>
-<div style="font-size:0.7rem; opacity:0.6; text-transform:uppercase; letter-spacing:1px;">Small Bottles</div>
-</div>
-<div>
-<div style="font-family:'Bebas Neue',sans-serif; font-size:2.5rem; color:#29b6f6; line-height:1;">1.5L</div>
-<div style="font-size:0.7rem; opacity:0.6; text-transform:uppercase; letter-spacing:1px;">Medium Bottles</div>
-</div>
-<div>
-<div style="font-family:'Bebas Neue',sans-serif; font-size:2.5rem; color:#29b6f6; line-height:1;">19L</div>
-<div style="font-size:0.7rem; opacity:0.6; text-transform:uppercase; letter-spacing:1px;">Jumbo Jugs</div>
-</div>
-</div>
-</div>
-<div class="why-float-badge">
-<div class="pct">100%</div>
-<div class="tag">Satisfaction<br>Guarantee</div>
-</div>
-</div>
-
-<div>
-<p class="section-label">Why Choose Us</p>
-<h2 class="section-title">YOUR <span class="accent">DAILY<br>WATER</span> PARTNER</h2>
-<p class="section-sub">We're more than just a delivery service. We're committed to keeping Islamabad hydrated with clean, affordable water every day.</p>
-
-<div class="why-list">
-<div class="why-item">
-<div class="why-num">01</div>
-<div>
-<h4>Free Delivery in Islamabad</h4>
-<p>No hidden charges. We deliver to your door at no extra cost anywhere within Islamabad city.</p>
-</div>
-</div>
-<div class="why-item">
-<div class="why-num">02</div>
-<div>
-<h4>Certified Purification</h4>
-<p>Our multi-stage filtration and UV purification process ensures every drop is safe and fresh.</p>
-</div>
-</div>
-<div class="why-item">
-<div class="why-num">03</div>
-<div>
-<h4>Eco-Friendly Packaging</h4>
-<p>Reusable jumbo jugs and recyclable small bottles — we care about the environment too.</p>
-</div>
-</div>
-<div class="why-item">
-<div class="why-num">04</div>
-<div>
-<h4>Affordable Prices</h4>
-<p>Quality water shouldn't cost a fortune. Our pricing is transparent and budget-friendly for families and businesses alike.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-```
-
+<div class="grid">
+<div class="card">500ml</div>
+<div class="card">1.5L</div>
+<div class="card">5L</div>
+<div class="card">19L</div>
 </div>
 </section>
 
-<!-- ═══════════════════ PRODUCTS ═══════════════════ -->
+<!-- CONTACT -->
+<section id="contact" class="contact">
+<h3>CONTACT US</h3>
 
-<section id="products">
-<div class="container">
-<p class="section-label">Product Range</p>
-<h2 class="section-title" style="color:white;">OUR <span style="color:#29b6f6;">BOTTLES</span></h2>
-<p class="section-sub">Available in multiple sizes to suit every need — from a single sip to a full office supply.</p>
-
-```
-<div class="products-grid">
-<div class="product-card">
-<div class="product-vol">500<span style="font-size:1.4rem;">ml</span></div>
-<div class="product-name">Personal Bottle</div>
-<span class="product-tag">On-the-go</span>
-</div>
-<div class="product-card">
-<div class="product-vol">1.5<span style="font-size:1.4rem;">L</span></div>
-<div class="product-name">Family Bottle</div>
-<span class="product-tag">Everyday use</span>
-</div>
-<div class="product-card">
-<div class="product-vol">5<span style="font-size:1.4rem;">L</span></div>
-<div class="product-name">Home Jug</div>
-<span class="product-tag">Home supply</span>
-</div>
-<div class="product-card">
-<div class="product-vol">19<span style="font-size:1.4rem;">L</span></div>
-<div class="product-name">Jumbo Dispenser</div>
-<span class="product-tag">Best value</span>
-</div>
-</div>
-```
-
+<div class="grid">
+<div class="contact-box">📞 0305 949 4143</div>
+<div class="contact-box">📧 waterstewardspakistan@gmail.com</div>
+<div class="contact-box">📍 G-8/1 Islamabad</div>
 </div>
 </section>
 
-<span class="wave-divider">
-<svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-<path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#f0f4f8"/>
-</svg>
-</span>
-
-<!-- ═══════════════════ CONTACT ═══════════════════ -->
-
-<section id="contact">
-<div class="container">
-<p class="section-label">Get In Touch</p>
-<h2 class="section-title">CONTACT <span class="accent">US</span></h2>
-<p class="section-sub">Ready to order or have questions? Reach out via phone, WhatsApp, or email — we respond quickly.</p>
-
-```
-<div class="contact-grid">
-<div class="contact-info">
-
-<a href="tel:+923059494143" class="contact-row">
-<div class="contact-icon phone">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg>
-</div>
-<div>
-<div class="contact-label">Phone</div>
-<div class="contact-value">0305 949 4143</div>
-</div>
-</a>
-
-<a href="https://wa.me/923059494143" target="_blank" class="contact-row">
-<div class="contact-icon whatsapp">
-<svg viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</div>
-<div>
-<div class="contact-label">WhatsApp</div>
-<div class="contact-value">+92 305 949 4143</div>
-</div>
-</a>
-
-<a href="mailto:waterstewardspakistan@gmail.com" class="contact-row">
-<div class="contact-icon email">
-<svg fill="none" stroke="#43a047" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-</div>
-<div>
-<div class="contact-label">Email</div>
-<div class="contact-value">waterstewardspakistan@gmail.com</div>
-</div>
-</a>
-
-<div class="contact-row" style="cursor:default;">
-<div class="contact-icon location">
-<svg fill="none" stroke="#f9a825" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-</div>
-<div>
-<div class="contact-label">Visit Us</div>
-<div class="contact-value">Plot 57, I&amp;T Centre, G-8/1 Islamabad</div>
-</div>
-</div>
-
-</div>
-
-<!-- Map placeholder / address card -->
-<div class="map-box">
-<div class="map-placeholder">
-<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-<span>I&amp;T Centre, G-8/1, Islamabad</span>
-</div>
-<div class="map-address">
-<div class="addr-title">Water Stewards PVT LTD</div>
-<p>Plot 57, I&amp;T Centre, G-8/1<br>Islamabad Capital Territory<br>Pakistan — 44050</p>
-<a href="https://maps.google.com/?q=I%26T+Centre+G-8%2F1+Islamabad+Pakistan" target="_blank"
-style="display:inline-block; margin-top:14px; font-size:0.82rem; font-weight:700; color:var(--blue-mid); text-decoration:none;">
-Open in Google Maps →
-</a>
-</div>
-</div>
-</div>
-```
-
-</div>
-</section>
-
-<!-- ═══════════════════ FOOTER ═══════════════════ -->
-
+<!-- FOOTER -->
 <footer>
-<div class="footer-inner">
-<div class="footer-brand">
-<div class="brand-name">WATER <span>STEWARDS</span></div>
-<p>Providing clean, fresh, and purified drinking water to homes and offices across Islamabad. Clean Water For All.</p>
-</div>
-
-```
-<div class="footer-col">
-<h4>Quick Links</h4>
-<ul>
-<li><a href="#services">Services</a></li>
-<li><a href="#why">Why Us</a></li>
-<li><a href="#products">Products</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</div>
-
-<div class="footer-col">
-<h4>Contact</h4>
-<ul>
-<li><a href="tel:+923059494143">0305 949 4143</a></li>
-<li><a href="mailto:waterstewardspakistan@gmail.com">waterstewardspakistan<br>@gmail.com</a></li>
-<li>G-8/1, Islamabad</li>
-</ul>
-</div>
-```
-
-</div>
-
-<div class="footer-bottom">
-<p>© 2024 Water Stewards PVT LTD. All rights reserved.</p>
-<span class="footer-tagline">Clean Water For All ✦</span>
-</div>
+<p>© 2024 Water Stewards. Clean Water For All.</p>
 </footer>
 
 </body>
